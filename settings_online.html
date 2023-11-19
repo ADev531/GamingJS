@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Access-Control-Allow-Origin" content="no-cors">
+    <title>Settings</title>
+</head>
+<body>
+    <div id="logined">
+        <p id="loginedas">Logined as ???</p>
+    </div>
+
+    <div id="notlogined">
+        <button id="onlinelogin">Login</button>
+        <button id="onlinesignup">Sign up</button>
+    </div>
+    <script>
+        var logined_form = document.getElementById("logined");
+        var notlogined_form = document.getElementById("notlogined");
+        var loginedas = document.getElementById("loginedas");
+        var isLogined = false;
+        var username = "";
+
+        fetch("http://localhost:8080/online/getusername", {
+            method: "POST",
+            withCredentials: true,
+        })
+        .then(function(response) {
+            if (response.status != 404) {
+                response.text().then(function(value) { 
+                    username = value;
+                });
+                isLogined = true;
+            }
+        })
+        .catch(err => {
+            console.log("error : " + err);
+        });
+
+        if (isLogined) {
+            notlogined_form.style.display = 'none';
+            loginedas.innerText = username;
+        } else {
+            logined_form.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

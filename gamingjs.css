@@ -1,0 +1,40 @@
+html, body {
+    width: 98.4%;
+    height: 98%;
+}
+
+.appcontainer {
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 5px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.appgrid {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+}
+
+.appicon {
+    width: 100px;
+    height: 100px;
+    object-fit: fill;
+}
+
+#bottombar {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+#games {
+    display: flex;
+    flex-wrap: wrap;
+}
