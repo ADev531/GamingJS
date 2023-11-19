@@ -1,1 +1,2 @@
-"# GamingJS" 
+# GamingJS
+Welcome to GamingJS!
