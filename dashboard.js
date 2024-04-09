@@ -48,7 +48,7 @@ function addApp(appmanfiest)
     cont.appendChild(appgrid);
 
     cont.addEventListener("click", function() {
-        window.location.href = appmanfiest.AppURL;
+        window.open(appmanfiest.AppURL);
     });
 
     cont.addEventListener("mouseenter", function() {
