@@ -5,13 +5,15 @@ var applications = [
         Name : "GamingJS Shop",
         Icon : 'images/jsshop.bmp',
         Description : 'Get more softwares from gamingjs shop!',
-        AppURL : 'shop.html'
+        AppURL : 'shop.html',
+        ShowInAppRunner : true,
     },
     {
         Name : "Settings",
         Icon : 'images/jssettings.bmp',
         Description : 'GamingJS Settings.',
         AppURL : 'settings.html'
+        ShowInAppRunner : true,
     }
 ];
 
@@ -20,7 +22,11 @@ var packs = JSON.parse(localStorage.getItem("apps"));
 if (packs !== null) 
 {
     for (const [akey, app] of Object.entries(packs)) {
-        applications.push({Name : app.displayname, Description : app.description, Icon : 'images/jsshop.bmp', AppURL : 'shop.html'})
+        var ShowInAppRunner = true;
+        if (app.showinrunner == false) {
+            ShowInAppRunner = false;
+        }
+        applications.push({Name : app.displayname, Description : app.description, Icon : 'images/jsshop.bmp', AppURL : app.appurl, ShowInAppRunner = ShowInAppRunner})
     }
 }
 
@@ -48,7 +54,12 @@ function addApp(appmanfiest)
     cont.appendChild(appgrid);
 
     cont.addEventListener("click", function() {
-        window.open(appmanfiest.AppURL);
+        if (appmanfiest.ShowInAppRunner) {
+            window.location.href = `https://adev531.github.io/run.html?url=${appmanfiest.AppUrl}`;
+        }
+        else {
+            window.location.href = appmanfiest.AppUrl;
+        }
     });
 
     cont.addEventListener("mouseenter", function() {
