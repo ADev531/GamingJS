@@ -55,7 +55,7 @@ function addApp(appmanfiest)
 
     cont.addEventListener("click", function() {
         if (appmanfiest.ShowInAppRunner) {
-            window.location.href = `https://adev531.github.io/run.html?url=${appmanfiest.AppUrl}`;
+            window.location.href = `https://adev531.github.io/GamingJSrun.html?url=${appmanfiest.AppUrl}`;
         }
         else {
             window.location.href = appmanfiest.AppUrl;
