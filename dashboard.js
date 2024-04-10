@@ -12,7 +12,7 @@ var applications = [
         Name : "Settings",
         Icon : 'images/jssettings.bmp',
         Description : 'GamingJS Settings.',
-        AppURL : 'settings.html'
+        AppURL : 'settings.html',
         ShowInAppRunner : true,
     }
 ];
