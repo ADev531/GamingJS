@@ -23,10 +23,10 @@ if (packs !== null)
 {
     for (const [akey, app] of Object.entries(packs)) {
         var ShowInAppRunner = true;
-        if (app.showinrunner == false) {
+        if (app.showinrunner === false) {
             ShowInAppRunner = false;
         }
-        applications.push({Name : app.displayname, Description : app.description, Icon : 'images/jsshop.bmp', AppURL : app.appurl, ShowInAppRunner = ShowInAppRunner})
+        applications.push({Name : app.displayname, Description : app.description, Icon : 'images/jsshop.bmp', AppURL : app.appurl, ShowInAppRunner : ShowInAppRunner})
     }
 }
 
