@@ -32,16 +32,21 @@ function addGame(doc) {
         "description" : doc.data().description
     };
 
-    var apps = {};
+    var confirminstall = confirm("Install this app?");
 
-    if (localStorage.getItem("apps") !== null) 
+    if (confirminstall)
     {
-        apps = JSON.parse(localStorage.getItem("apps"));
+        var apps = {};
+
+        if (localStorage.getItem("apps") !== null) 
+        {
+            apps = JSON.parse(localStorage.getItem("apps"));
+        }
+    
+        apps[doc.id] = gameinfo;
+    
+        localStorage.setItem("apps", JSON.stringify(apps));
     }
-
-    apps[doc.id] = gameinfo;
-
-    localStorage.setItem("apps", JSON.stringify(apps));
 }
 
 docs.forEach((doc) => {
@@ -68,13 +73,13 @@ docs.forEach((doc) => {
         } 
         else 
         {
-            adescription.innerText = doc.data().description + ` ($${doc.data().price})`;
+            adescription.innerText = doc.data().description + ` (${doc.data().price} points)`;
             cont.addEventListener('click', function() {
                 addGame(doc);
             });
         }
     } else {
-        adescription.innerText = doc.data().description + ` ($${doc.data().price})`;
+        adescription.innerText = doc.data().description + ` (${doc.data().price} points)`;
         cont.addEventListener('click', function() {
             addGame(doc);
         });
